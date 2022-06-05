@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Seznam filmů{% endblock %}
+{% block content %}
+<div class="row mb-3">
+    <div class="col-sm-12 bg-danger">
+        <h2 class="display-4 text-center">Vojáci Easy company</h2>
+    </div>
+</div>
+<div class="row">
+    {% for osoba in vojaci_list %}
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{ osoba.jmeno }} {{ osoba.prijmeni }}</h4>
+                <p class="card-text"><strong>Původ:</strong> {{ osoba.bydliste }}</p>
+                <p><strong>Rota:</strong> {{osoba.hodnost}}</p>
+                <a href="{% url 'podrobnosti' osoba.pk %}" class="btn btn-primary">Podrobnosti</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
