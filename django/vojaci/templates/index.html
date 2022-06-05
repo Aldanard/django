@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row mt-3 mb-3 bg-warning p-3">
+    <div class="col-sm-12">
+        <h2 class="text-center">Vojáci easy company</h2>
+    </div>
+</div>
+<div class="row">
+    {% for osoba in osoba %}
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{ osoba.jmeno }} {{ osoba.prijmeni }}</h4>
+                <p class="card-text"><strong>Původ:</strong> {{ osoba.bydliste }}</p>
+                <p><strong>Rota:</strong> {{osoba.hodnost}}</p>
+                <a href="" class="btn btn-primary">Podrobnosti</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <strong>Celkový počet filmů:</strong> {{ num_films }}
+    </div>
+</div>
+{% endblock %}
